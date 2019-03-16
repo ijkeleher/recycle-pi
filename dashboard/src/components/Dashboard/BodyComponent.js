@@ -12,6 +12,12 @@ import { Card, Grid } from 'semantic-ui-react'
 
 
 export default class BodyComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            status: "Active"
+        }
+    }
     render() {
         return (
             <div className="main-dashboard">
@@ -40,7 +46,7 @@ export default class BodyComponent extends Component {
                                     <Grid.Row stretched>
                                         <Grid.Column width={8}>
                                             <div className="card-wrap">
-                                                <DeviceInfo name={this.props.name} id={this.props.id}/>
+                                                <DeviceInfo name={this.props.name} id={this.props.id} status={this.state.status}/>
                                             </div>
                                             <div className="card-wrap">
                                                 <HorizontalBar data={data} />

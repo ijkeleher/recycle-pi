@@ -11,7 +11,7 @@ export default class Dashboard extends Component {
     return (
       <div style={{width: '100%'}}>
         <MenuComponent name={this.props.name} selectDevice={this.props.selectDevice}/>
-        <BodyComponent name={this.props.name} id={this.props.id}/>
+        <BodyComponent name={this.props.name} id={this.props.id} status={this.props.status}/>
       </div>
     );
   }
