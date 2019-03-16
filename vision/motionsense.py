@@ -43,7 +43,7 @@ def scanFrameChange(width, height):
 
 
 def changeDetect():
-    print("Detecting")
+    print("Detecting motion...")
     while True:
         if scanFrameChange(224, 160):
             print("Motion detected")
