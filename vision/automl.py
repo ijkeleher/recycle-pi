@@ -86,7 +86,7 @@ def evaluate():
        #speek("That's a " + confident.name + ", innit?" + recyclability)
     else:
         if confident.name == "soft plastic":
-            recyclability = "Item is recyclable at a specialist facility."
+            recyclability = "Item is recyclable only at a specialist facility."
         else:
             recyclability = "Item is recyclable."
         speek("That's a " + confident.name + ", innit?" + recyclability)
