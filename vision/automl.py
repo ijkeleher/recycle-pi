@@ -58,7 +58,7 @@ def evaluate():
 
     condition1 = confident.name == "trash" and float(confident.score) > 0.4 
     condition2 = confident.name != "trash" and  float(confident.score) <= 0.5
-    condition3 = confident.name == "    " and float(confident.score) > 0.4
+    condition3 = confident.name == "organic" and float(confident.score) > 0.4
 
     if condition1 or condition2 or condition3:
         print("Item is not recyclable.")
