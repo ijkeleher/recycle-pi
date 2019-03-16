@@ -79,12 +79,17 @@ def evaluate():
     print("Most confident class score: " + confident.score)
 
     condition1 = confident.name == "trash" and float(confident.score) > 0.4
-    condition2 = confident.name != "trash" and float(confident.score) <= 0.5
+    condition2 = confident.name != "trash" and float(confident.score) <= 0.3
 
-    if condition1 or condition2:
+    if condition1:
         recyclability = "Item is not recyclable."
+        speek("That's a " + confident.name + ", innit?" + recyclability)
+    elif condition2:
+        recyclability = "Item is not recyclable."
+        speek(recyclability)
     else:
         recyclability = "Item is recyclable."
+        speek("That's a " + confident.name + ", innit?" + recyclability)
 
     print(recyclability)
     speek("That's a " + confident.name + ", innit?" + recyclability)
