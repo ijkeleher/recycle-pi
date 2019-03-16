@@ -11,7 +11,8 @@ export default class Leaderboard extends Component {
 
         this.state = {
             deviceList: [],
-            measurementList: []
+            measurementList: [],
+            loading: true
         };
 
     }
@@ -22,21 +23,63 @@ export default class Leaderboard extends Component {
             deviceList: result
         }))
         api.getMeasurements().then(result => self.setState({
-            measurementList: result
+            measurementList: result,
+            loading: false
         }))
     }
 
 
-    render() {
-        console.log(this.state);
+    render() {   
+        if(this.state.loading) {
+            return <Loading />
+        } else {
+            return (
 
-        return (
+                <div className="main-dashboard">
+    
+    
+                    <Table striped>
+                        <thead>
+                            <tr><th>Owner</th>
+                                <th>Device</th>
+                                <th>Points</th>
+                            </tr></thead>
+                        <tbody>
+                            {this.state.deviceList.map((device,key) => {
+                                
+                                //device.id
+                                let fitleredArray = this.state.measurementList.filter(item => item.device === device.id);
+                                let maxPoint = fitleredArray.length;
+                                let trashPoint = 0;
+                                fitleredArray.map((each) => {
+                                    if(each.value === 'waste type') {
+                                        trashPoint++;
+                                        return trashPoint;
+                                    }
+                                })
 
-            <div className="main-dashboard">
+                                console.log(maxPoint)
+                                console.log(trashPoint)
 
+    
+                                return (
+                                    <tr key={key}><th>{device.owner}</th>
+                                        <th>{device.id}</th>
+                                        <th>{(maxPoint-trashPoint)*100/maxPoint}</th></tr>
+                                        
+                                )
 
-            </div>
-        )
+                            })
+                            }
+    
+                        </tbody>
+                    </Table>
+    
+    
+                </div >
+            )
+        }
+        
     }
 }
 
