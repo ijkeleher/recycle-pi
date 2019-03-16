@@ -1,5 +1,6 @@
 from google.cloud import automl_v1beta1 as automl
 from api import IotAPI
+from environs import Env
 
 class Item:
     def __init__(self, name, score):
@@ -7,9 +8,11 @@ class Item:
         self.score = score
 
 def evaluate():
+    env = Env()
+    env.read_env()
     project_id = 'recycle-pi'
     compute_region = 'us-central1'
-    model_id = 'ICN1955812788478599087'
+    model_id = env("ML_MODEL_ID")
     file_path = 'test.jpg'
     score_threshold = '0.0'
 
@@ -53,11 +56,11 @@ def evaluate():
     print("\nMost confident class name: " + confident.name)
     print("Most confident class score: " + confident.score)
 
-    condition1 = confident.name == "trash" and float(confident.score) > 0.4
+    condition1 = confident.name == "trash" and float(confident.score) > 0.4 
     condition2 = confident.name != "trash" and  float(confident.score) <= 0.5
+    condition3 = confident.name == "    " and float(confident.score) > 0.4
 
-    
-    if condition1 or condition2:
+    if condition1 or condition2 or condition3:
         print("Item is not recyclable.")
         recyclable = "false"
     else:
