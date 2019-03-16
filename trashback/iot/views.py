@@ -16,7 +16,7 @@ from django_elasticsearch_dsl_drf.viewsets import DocumentViewSet
 from django.shortcuts import render
 from rest_framework import permissions
 from .models import Device, Goal
-from .documents import MeasurementDocument
+from .documents import MeasurementDocument, DeviceDocument
 
 from .serializers import UserSerializer, DeviceSerializer, MeasurementSerializer, GoalSerializer
 
@@ -28,6 +28,7 @@ from django.contrib.auth.models import User
 
 
 class DeviceViewSet(DocumentViewSet):
+    document = DeviceDocument
     serializer_class = DeviceSerializer
 
     lookup_field = 'id'
@@ -57,11 +58,10 @@ class DeviceViewSet(DocumentViewSet):
     # Define ordering fields
     ordering_fields = {
         'id': 'id',
-        'name': 'name',
     }
 
     # Specify default ordering
-    ordering = ('id', 'name',)
+    ordering = ('id',)
 
 
 class GoalViewSet(viewsets.ModelViewSet):

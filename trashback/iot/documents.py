@@ -19,10 +19,10 @@ measurement_index.settings(
 class MeasurementDocument(DocType):
     """Article elasticsearch document"""
 
-    id = fields.StringField(attr='id')
+    id = fields.LongField(attr='id')
     key = fields.StringField()
-    value = fields.TextField()
-    location = fields.TextField()
+    value = fields.StringField()
+    location = fields.StringField()
     device = fields.StringField(attr='device_id')
     time = fields.IntegerField()
 
@@ -30,7 +30,7 @@ class MeasurementDocument(DocType):
         model = Measurement
 
 
-device_index = Index('device')
+device_index = Index('devices')
 device_index.settings(
     number_of_shards=1,
     number_of_replicas=0
@@ -39,10 +39,10 @@ device_index.settings(
 
 @device_index.doc_type
 class DeviceDocument(DocType):
-    id = fields.StringField(attr='id')
+    id = fields.LongField(attr='id')
     name = fields.StringField()
-    location = fields.TextField()
-    owner = fields.TextField()
+    location = fields.StringField()
+    owner = fields.IntegerField()
 
     class Meta:
         model = Device
