@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import loading from '../../images/loading.svg';
 
 export default class Load extends Component {
   constructor(props) {
@@ -16,5 +17,15 @@ export default class Load extends Component {
   }
   render() {
     return this.props.children(this.state);
+  }
+}
+
+export class Loading extends Component {
+  render() {
+    return(
+      <div className="loader">
+        <img src={loading}/>
+      </div>
+    )
   }
 }

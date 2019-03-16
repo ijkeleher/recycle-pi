@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './assets/css/selectDevice.css';
 import IotAPI from "../../api";
-import Load from "../Load/index";
+import Load, { Loading } from "../Load/index";
 export default class SelectDevice extends Component { 
     constructor(props) {
         super(props);
@@ -26,14 +26,14 @@ export default class SelectDevice extends Component {
                 <Load promise={new IotAPI(this.props.token).getDevices()}>
                 {({loading, result})=> {
                     if(loading){
-                        return(<div>Loading</div>)
+                        return(<Loading />)
                     } else{
                         return(<div className = "select-panel">
                         <h2>SELECT DEVICE</h2>
                         <div className="device-list">
                             {result.map((device, key) => {
                                 return (
-                                    <div className = "device" onClick={() => this.selectDevice(device.id, device.name)}>
+                                    <div className = "device" key={key} onClick={() => this.selectDevice(device.id, device.name)}>
                                         {device.name}
                                     </div>
                                 )
@@ -48,7 +48,7 @@ export default class SelectDevice extends Component {
             )
             
         } else {
-            
+
             return (
                 React.cloneElement(React.Children.only(this.props.children), {
                     token: this.props.token,

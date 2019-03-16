@@ -4,7 +4,7 @@ import {Button, Menu, Input, Modal, Dropdown} from 'semantic-ui-react';
 import IotApi from '../../api';
 import './assets/css/menu.css';
 import logo from '../../images/logo.svg';
-import Load from '../Load/index';
+import Load, { Loading } from '../Load/index';
 export class MenuComponent extends Component {
     constructor(props) {
         super(props);
@@ -39,7 +39,7 @@ export class MenuComponent extends Component {
             <Load promise={new IotApi(this.props.token).getDevices()}>
             {({loading, result}) => {
               if(loading) {
-                return(<div>Loading...</div>)
+                return(<div />)
               } else {
                 return (
                   <Dropdown
@@ -61,8 +61,8 @@ export class MenuComponent extends Component {
             }}
           
             </Load>
-            <div className="sub-menu"><a href="#">Leader board</a></div>
-              <Modal trigger={<Button style={{backgroundColor: "#33d9b2", color: "#fff"}}>New goal</Button>}>
+            <div className="sub-menu"><a href="#" onClick={() => this.props.toggleLeaderBoard()}>{(this.props.view) ? "Dashboard" : "Leaderboard"}</a></div>
+              {/* <Modal trigger={<Button style={{backgroundColor: "#33d9b2", color: "#fff"}}>New goal</Button>}>
                 <Modal.Header>Create a new goal</Modal.Header>
                 <Modal.Content>
                   <Form
@@ -88,7 +88,7 @@ export class MenuComponent extends Component {
                     <Button onChange={this.submitGoal}>Submit</Button>
                   </Form>
                 </Modal.Content>
-              </Modal>
+              </Modal> */}
             </Menu.Item>
           </Menu>
         );
