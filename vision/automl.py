@@ -2,7 +2,7 @@ project_id = 'recycle-pi'
 compute_region = 'us-central1'
 model_id = 'ICN1955812788478599087'
 file_path = 'test.jpg'
-score_threshold = '0.5'
+score_threshold = '0.0'
 
 from google.cloud import automl_v1beta1 as automl
 
