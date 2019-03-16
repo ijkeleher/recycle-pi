@@ -9,11 +9,11 @@ class App extends Component {
     return (
       <div className="App">
 
-        {/* <Login>  */}
-          {/* <SelectDevice> */}
+        <Login> 
+          <SelectDevice>
               <Dashboard/>
-          {/* </SelectDevice> */}
-        {/* </Login> */}
+          </SelectDevice>
+        </Login>
       
       </div>
     );

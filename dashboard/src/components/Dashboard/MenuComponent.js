@@ -61,7 +61,7 @@ export class MenuComponent extends Component {
             }}
           
             </Load>
-            <div className="sub-menu"><a href="#">Leader board</a></div>
+            <div className="sub-menu"><a href="#" onClick={() => this.props.toggleLeaderBoard()}>{(this.props.view) ? "Dashboard" : "Leaderboard"}</a></div>
               <Modal trigger={<Button style={{backgroundColor: "#33d9b2", color: "#fff"}}>New goal</Button>}>
                 <Modal.Header>Create a new goal</Modal.Header>
                 <Modal.Content>
