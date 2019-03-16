@@ -88,8 +88,8 @@ def evaluate():
         recyclable = "true"
 
     runapi = IotAPI()
-    runapi.post_measurement(
-        "aaedd1f1-12f9-499b-9c5c-990147dc019a", "wasteType", confident.name)
+    # runapi.post_measurement(
+    #    "aaedd1f1-12f9-499b-9c5c-990147dc019a", "wasteType", confident.name)
 
 
 if __name__ == '__main__':
