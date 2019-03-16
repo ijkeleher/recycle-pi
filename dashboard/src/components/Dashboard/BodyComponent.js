@@ -10,11 +10,15 @@ import { Doughnut, HorizontalBar } from 'react-chartjs-2';
 import { Grid } from 'semantic-ui-react'
 
 export default class BodyComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            status: "Active"
+        }
+    }
     render() {
         return (
             <div className="main-dashboard">
-
-                <DeviceInfo name={this.props.name} id={this.props.id} />
 
                 <Load promise={new IotAPI(this.props.token).getMeasurements()}>
                     {({ result, loading }) => {
@@ -44,13 +48,20 @@ export default class BodyComponent extends Component {
                             };
 
                             return (
-                                <Grid>
-                                    <Grid.Row>
+                                <Grid columns={2} padded>
+                                    <Grid.Row stretched>
                                         <Grid.Column width={8}>
-                                            <Doughnut data={data} />
+                                            <div className="card-wrap">
+                                                <DeviceInfo name={this.props.name} id={this.props.id} status={this.state.status}/>
+                                            </div>
+                                            <div className="card-wrap">
+                                                <HorizontalBar data={data} />
+                                            </div>
                                         </Grid.Column>
                                         <Grid.Column width={8}>
-                                            <HorizontalBar data={data} />
+                                            <div className="card-wrap">
+                                                <Doughnut data={data} />
+                                            </div>
                                         </Grid.Column>
                                     </Grid.Row>
                                 </Grid>
