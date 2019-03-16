@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Button, Checkbox, Form } from 'semantic-ui-react';
 import './assets/css/login.css';
 import IotAPI from "../../api";
-import logo from './assets/images/logo.svg';
+import logo from '../../images/logo.svg';
 export default class Login extends Component {
   constructor(props) {
     super(props);
