@@ -25,7 +25,7 @@ export class MenuComponent extends Component {
       };
 
       switchDevice = (event, data) => {
-        this.props.selectDevice(data.id,data.text)
+        this.props.selectDevice(data.value,data.text)
       }
     
     render() {

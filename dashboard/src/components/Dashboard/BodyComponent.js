@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DeviceName from './DeviceName';
+import DeviceInfo from './DeviceInfo';
 import BarChartItem from './BarChartItem.js';
 import Load from '../Load';
 import IotAPI from '../../api';
@@ -9,26 +9,6 @@ import { Doughnut } from 'react-chartjs-2';
 
 import { Card } from 'semantic-ui-react'
 
-const items = [
-    {
-        header: 'Project Report - April',
-        description: 'Leverage agile frameworks to provide a robust synopsis for high level overviews.',
-        meta: 'ROI: 30%',
-    },
-    {
-        header: 'Project Report - May',
-        description: 'Bring to the table win-win survival strategies to ensure proactive domination.',
-        meta: 'ROI: 34%',
-    },
-    {
-        header: 'Project Report - June',
-        description:
-            'Capitalise on low hanging fruit to identify a ballpark value added activity to beta test.',
-        meta: 'ROI: 27%',
-    },
-]
-
-const CardExampleGroupProps = () => <Card.Group items={items} />
 
 
 
@@ -39,7 +19,7 @@ export default class BodyComponent extends Component {
         return (
             <div className="main-dashboard">
 
-                <CardExampleGroupProps />
+                <DeviceInfo name={this.props.name} id={this.props.id}/>
 
                 <Load promise={new IotAPI(this.props.token).getMeasurements()}>
                     {({ result, loading }) => {

@@ -16,20 +16,12 @@ export default class SelectDevice extends Component {
             id: id,
             name: name
         })
+        console.log(this.state);
     }
-    
 
     render() {
-        if(this.state.id != null) {
-            return (
-                React.cloneElement(React.Children.only(this.props.children), {
-                    token: this.props.token,
-                    id: this.state.id,
-                    name: this.state.name,
-                    selectDevice: this.selectDevice,
-                })
-            )
-        } else {
+        if(this.state.id === null) {
+
             return(
                 <Load promise={new IotAPI(this.props.token).getDevices()}>
                 {({loading, result})=> {
@@ -53,6 +45,17 @@ export default class SelectDevice extends Component {
                 }}
                 </Load>
            
+            )
+            
+        } else {
+            
+            return (
+                React.cloneElement(React.Children.only(this.props.children), {
+                    token: this.props.token,
+                    id: this.state.id,
+                    name: this.state.name,
+                    selectDevice: this.selectDevice,
+                })
             )
         }
     }

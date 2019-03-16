@@ -11,3 +11,7 @@
     width: 90vw;
     background: transparent;
 }
+
+.card .content strong {
+    font-weight: 800;
+}

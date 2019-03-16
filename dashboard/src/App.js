@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
         <Login> 
           <SelectDevice>
-            <Dashboard />
+              <Dashboard/>
           </SelectDevice>
         </Login>
       </div>
