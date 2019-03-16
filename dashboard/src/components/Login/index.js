@@ -29,7 +29,10 @@ export default class Login extends Component {
   }
   render() {
     if(this.state.token) {
-      return (this.props.children);
+        return React.cloneElement(React.Children.only(this.props.children), 
+          {
+          token: this.state.token
+          })
     } else {
       return (
         <div className = "form-login">

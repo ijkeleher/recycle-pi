@@ -11,6 +11,8 @@
     margin: 0 auto;
     position: relative;
     background: #fff;
+    transform: translateY(-50%);
+    top: 50%;
 }
 
 .form-login h1{
