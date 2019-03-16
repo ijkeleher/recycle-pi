@@ -25,6 +25,30 @@ export default class IotAPI {
     return await response.json();
   }
 
+  async getGoal() {
+    let response = await fetch(BACKEND + 'goals/', {
+      headers: {
+        Authorization: this.token,
+        Accepts: 'application/json',
+      },
+    });
+
+    return await response.json();
+  }
+
+  async addGoal(goal) {
+    let response = await fetch(BACKEND + 'goals/', {
+      method: 'POST',
+      headers: {
+        Authorization: this.token,
+        Accepts: 'application/json',
+      },
+      body: goal,
+    });
+
+    return await response.json();
+  }
+
   static async logIn(username, password) {
     let data = new URLSearchParams();
     data.append('username', username);
