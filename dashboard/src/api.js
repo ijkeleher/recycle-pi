@@ -57,8 +57,9 @@ export default class IotAPI {
     let response = await fetch(BACKEND + 'auth/login/', {
       method: 'POST',
       headers: new Headers({
-        'Content-Type': 'application/x-www-form-url',
+        'Content-Type': 'application/x-www-form-urlencoded',
       }),
+      body: data
     });
     let json = await response.json();
 
