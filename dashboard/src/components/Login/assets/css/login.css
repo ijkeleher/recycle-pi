@@ -1,0 +1,13 @@
+.form-login{
+    width: fit-content;
+    height:fit-content;
+    align-self: "center";
+    justify-content: "center";
+    align-items: "center";
+    padding: 2em;
+    border-radius: 5px;
+    box-shadow: 0 0 15px #0000002e;
+    margin: 0 auto;
+    position: relative;
+    background: #fff;
+}
