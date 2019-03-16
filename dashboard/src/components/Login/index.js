@@ -16,7 +16,6 @@ export default class Login extends Component {
   }
 
   onInputChange (event) {
-    console.log(event);
     this.setState({[event.target.name]: event.target.value});
   }
 
@@ -40,11 +39,11 @@ export default class Login extends Component {
            <Form>
               <Form.Field>
                 <label>Username</label>
-                <input placeholder='Username' type="text" value={this.state.value} name="username" onChange={this.onInputChange}/>
+                <input placeholder='Username' type="text" value={this.state.value} name="username" onChange={this.onInputChange} autoComplete="new-password"/>
               </Form.Field>
               <Form.Field>
                 <label>Password</label>
-                <input placeholder='Password' type='password' value={this.state.value} name="password" onChange={this.onInputChange}/>
+                <input placeholder='Password' type='password' value={this.state.value} name="password" onChange={this.onInputChange} autoComplete="new-password"/>
               </Form.Field>
               <Form.Field>
                 <Checkbox label='Remember me' />

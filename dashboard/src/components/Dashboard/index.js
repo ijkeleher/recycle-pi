@@ -10,8 +10,8 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div style={{width: '100%'}}>
-        <MenuComponent />
-        <BodyComponent />
+        <MenuComponent name={this.props.name} selectDevice={this.props.selectDevice}/>
+        <BodyComponent name={this.props.name} id={this.props.id}/>
       </div>
     );
   }
