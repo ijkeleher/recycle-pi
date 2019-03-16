@@ -9,7 +9,9 @@ class Measurement(models.Model):
     device = models.ForeignKey(
         'Device', related_name='measurements', on_delete=models.CASCADE)
     time = models.DateTimeField(blank=True, null=True)
-    objectType = models.CharField(max_length=200)
+    value = models.CharField(max_length=200)
+    key = models.CharField(max_length=200)
+    location = models.CharField(max_length=200)
 
 
 class Device(models.Model):

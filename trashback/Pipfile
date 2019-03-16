@@ -11,6 +11,9 @@ django = "*"
 djangorestframework = "*"
 django-allauth = "*"
 django-rest-auth = "*"
+elasticsearch-dsl = "*"
+django-elasticsearch-dsl = "*"
+django-elasticsearch-dsl-drf = "*"
 
 [requires]
 python_version = "3.7"
