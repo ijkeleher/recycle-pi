@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DeviceInfo from './DeviceInfo';
 import BarChartItem from './BarChartItem.js';
-import Load from '../Load';
+import Load, { Loading } from '../Load';
 import IotAPI from '../../api';
 import _ from 'lodash';
 
@@ -29,7 +29,7 @@ export default class BodyComponent extends Component {
                 <Load promise={new IotAPI(this.props.token).getMeasurements()}>
                     {({ result, loading }) => {
                         if (loading) {
-                            return <div>Loading</div>
+                            return <Loading />
                         }
                         else {
                             let deviceSpecific = result.filter((entry) => entry.device === this.props.id);
@@ -39,7 +39,7 @@ export default class BodyComponent extends Component {
                             let counts = _.map(types, (value) => value.length);
                             let labels = Object.keys(types);
 
-                       
+
                             // For the time series
                             let time = _.groupBy(deviceSpecific, (entry) => entry.time)
                             let timeLabels = Object.keys(time);
@@ -78,7 +78,7 @@ export default class BodyComponent extends Component {
                                                 <DeviceInfo name={this.props.name} id={this.props.id} status={this.state.status} />
                                             </div>
                                             <div className="card-wrap">
-                                                <HorizontalBar data={dataChart} />
+                                                <HorizontalBar data={dataChart} options={{ legend: { display: false } }} />
                                             </div>
                                         </Grid.Column>
                                         <Grid.Column width={8}>
@@ -88,7 +88,7 @@ export default class BodyComponent extends Component {
                                         </Grid.Column>
                                     </Grid.Row>
                                     <Line
-                                        type = 'line'
+                                        type='line'
                                         data={groupMapped}
                                         options={{
                                             scales: {
