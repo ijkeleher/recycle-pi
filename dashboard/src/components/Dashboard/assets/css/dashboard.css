@@ -5,3 +5,9 @@
 .menu .item h2{
     color: #34ace0;
 }
+
+.main-dashboard {
+    margin: 1em auto;
+    width: 90vw;
+    background: transparent;
+}
