@@ -55,7 +55,7 @@ export default class BodyComponent extends Component {
                                                 <DeviceInfo name={this.props.name} id={this.props.id} status={this.state.status}/>
                                             </div>
                                             <div className="card-wrap">
-                                                <HorizontalBar data={data} />
+                                                <HorizontalBar data={data} options={{legend: {display: false}}}/>
                                             </div>
                                         </Grid.Column>
                                         <Grid.Column width={8}>
