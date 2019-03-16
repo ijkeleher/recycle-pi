@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DeviceInfo from './DeviceInfo';
 import BarChartItem from './BarChartItem.js';
-import Load from '../Load';
+import Load, { Loading } from '../Load';
 import IotAPI from '../../api';
 import _ from 'lodash';
 
@@ -23,7 +23,7 @@ export default class BodyComponent extends Component {
                 <Load promise={new IotAPI(this.props.token).getMeasurements()}>
                     {({ result, loading }) => {
                         if (loading) {
-                            return <div>Loading</div>
+                            return <Loading/>
                         }
                         else {
                             let deviceSpecific = result.filter((entry) => entry.device === this.props.id);

@@ -3,7 +3,6 @@
     width: fit-content;
     background: #fff;
     height: fit-content;
-    min-height: 500px;
     border-radius: 35px;
     padding: 35px;
     box-shadow: 0 0 10px #00000047;
@@ -19,14 +18,19 @@
 }
 
 .select-panel .device-list {
-    
+    border: 1px solid #00000014;
+    border-bottom: 0;
+    width: 100%;
+    /* box-shadow: 0 0 5px #00000047; */
+    /* border-bottom: 1px solid #00000014; */
+
 }
 
 .select-panel .device-list .device {
     padding: 5px 10px;
-    border-radius: 99px;
-    box-shadow: 0 0 5px #00000047;
-    margin-bottom: 1em;
+    line-height: 2em;
+    text-align: center;
+    border-bottom: 1px solid #00000014;
 }
 
 .select-panel .device-list .device:hover{
