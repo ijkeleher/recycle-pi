@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class Load {
+export default class Load extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +15,6 @@ export default class Load {
     });
   }
   render() {
-    let func = React.Children.only(this.props.children);
-    return func(this.state);
+    return this.props.children(this.state);
   }
 }
