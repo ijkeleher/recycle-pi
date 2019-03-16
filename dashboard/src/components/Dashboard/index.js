@@ -24,24 +24,35 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Menu>
+        <Menu fluid>
           <Menu.Item position="right">
             <Modal trigger={<Button>New goal</Button>}>
-              <Form
-                state={this.state.goalForm}
-                onChange={state => this.setState({goalForm: state})}>
-                <Field fieldName="name" label="Goal name" type={Input} />
-                <Field fieldName="metric" label="Goal metric" type={Input} />
-                <Field fieldName="target" label="Goal target" type={Input} />
-                <Button onChange={this.submitGoal}>Submit</Button>
-              </Form>
+              <Modal.Header>Create a new goal</Modal.Header>
+              <Modal.Content>
+                <Form
+                  state={this.state.goalForm}
+                  onChange={state => this.setState({goalForm: state})}>
+                  <div>
+                    <Field fieldName="name" label="Goal name" type={Input} />
+                  </div>
+                  <div>
+                    <Field
+                      fieldName="metric"
+                      label="Goal metric"
+                      type={Input}
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      fieldName="target"
+                      label="Goal target"
+                      type={Input}
+                    />
+                  </div>
+                  <Button onChange={this.submitGoal}>Submit</Button>
+                </Form>
+              </Modal.Content>
             </Modal>
-          </Menu.Item>
-          <Menu.Item position="right">
-            <Form>
-              <Field fieldName="device" label="Device" type={Dropdown} />
-              <Button onChange={this.submitGoal}>Claim</Button>
-            </Form>
           </Menu.Item>
         </Menu>
       </div>
