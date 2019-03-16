@@ -1,0 +1,35 @@
+.select-panel {
+    min-width: 500px;
+    width: fit-content;
+    background: #fff;
+    height: fit-content;
+    min-height: 500px;
+    border-radius: 35px;
+    padding: 35px;
+    box-shadow: 0 0 10px #00000047;
+    margin: 0 auto;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
+
+.select-panel h2 {
+    text-align: center;
+    color: #34ace0;
+}
+
+.select-panel .device-list {
+    
+}
+
+.select-panel .device-list .device {
+    padding: 5px 10px;
+    border-radius: 99px;
+    box-shadow: 0 0 5px #00000047;
+}
+
+.select-panel .device-list .device:hover{
+    background: #706fd3;
+    color: white;
+    cursor: pointer;
+}

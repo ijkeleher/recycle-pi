@@ -8,11 +8,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Login> 
+        {/* <Login>  */}
           <SelectDevice>
             {/* <Dashboard /> */}
           </SelectDevice>
-        </Login>
+        {/* </Login> */}
       </div>
     );
   }
