@@ -7,4 +7,10 @@
     display: flex;
     margin-right: 2em;
     align-self: center;
+    width: 200px;
+}
+
+
+.menu .dropdown {
+    margin-right: 2em;
 }
