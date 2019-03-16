@@ -8,7 +8,6 @@ export default class IotAPI {
     let response = await fetch(BACKEND + 'devices/', {
       headers: {
         Authorization: this.token,
-        Accepts: 'application/json',
       },
     });
     return await response.json();
@@ -18,7 +17,6 @@ export default class IotAPI {
     let response = await fetch(BACKEND + 'measurements/', {
       headers: {
         Authorization: this.token,
-        Accepts: 'application/json',
       },
     });
 
@@ -29,7 +27,6 @@ export default class IotAPI {
     let response = await fetch(BACKEND + 'goals/', {
       headers: {
         Authorization: this.token,
-        Accepts: 'application/json',
       },
     });
 
@@ -41,7 +38,6 @@ export default class IotAPI {
       method: 'POST',
       headers: {
         Authorization: this.token,
-        Accepts: 'application/json',
       },
       body: goal,
     });
@@ -57,8 +53,9 @@ export default class IotAPI {
     let response = await fetch(BACKEND + 'auth/login/', {
       method: 'POST',
       headers: new Headers({
-        'Content-Type': 'application/x-www-form-url',
+        'Content-Type': 'application/x-www-form-urlencoded',
       }),
+      body: data
     });
     let json = await response.json();
 

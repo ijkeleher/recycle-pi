@@ -1,5 +1,6 @@
 .form-login{
     width: fit-content;
+    min-width: 30em;
     height:fit-content;
     align-self: "center";
     justify-content: "center";
@@ -10,4 +11,13 @@
     margin: 0 auto;
     position: relative;
     background: #fff;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.form-login h1{
+    color: #34ace0;
+    text-align: center;
+    padding-bottom: .5em;
+    border-bottom: 1px solid #00000012
 }

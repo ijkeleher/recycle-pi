@@ -1,0 +1,25 @@
+.field {
+    margin-bottom: .5em;
+}
+
+.menu .item h2{
+    color: #34ace0;
+}
+
+.main-dashboard {
+    margin: 1em auto;
+    width: 90vw;
+    background: transparent;
+}
+
+.card .content strong, .card-wrap .content strong {
+    font-weight: 800;
+}
+
+.card-wrap {
+    padding: .6em;
+    margin-bottom: 1em;
+    background: #fff;
+    box-shadow: 0 0 5px #00000042;
+    border-radius: 6px;
+}
