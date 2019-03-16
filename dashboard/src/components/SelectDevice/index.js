@@ -24,7 +24,7 @@ export default class SelectDevice extends Component {
 
             return(
                 <Load promise={new IotAPI(this.props.token).getDevices()}>
-                {({loading, result})=> {
+                {({loading, result}) => {
                     if(loading){
                         return(<div>Loading</div>)
                     } else{

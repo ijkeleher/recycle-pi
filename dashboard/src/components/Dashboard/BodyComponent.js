@@ -4,6 +4,7 @@ import BarChartItem from './BarChartItem.js';
 import Load from '../Load';
 import IotAPI from '../../api';
 import _ from 'lodash';
+import Leaderboard from './Leaderboard';
 
 import { Doughnut, HorizontalBar } from 'react-chartjs-2';
 
@@ -30,6 +31,9 @@ export default class BodyComponent extends Component {
 
                             let types = _.groupBy(deviceSpecific, (entry) => entry.value);
                             let counts = _.map(types, (value) => value.length);
+                            let summary = _.map(deviceSpecific, (value)=> value.length);
+                            console.log('summary')
+                            console.log(summary);
                             let labels = Object.keys(types);
 
                             console.log(deviceSpecific)
@@ -63,7 +67,12 @@ export default class BodyComponent extends Component {
                                                 <Doughnut data={data} />
                                             </div>
                                         </Grid.Column>
+                                        <Grid.Column>
+                                            <Leaderboard name={this.props.name} id={this.props.id} status={this.state.status}/>
+                                        </Grid.Column>
+
                                     </Grid.Row>
+
                                 </Grid>
                             );
                         }

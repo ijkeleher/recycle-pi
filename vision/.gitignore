@@ -102,3 +102,4 @@ node_modules/
 .Trashes
 ehthumbs.db
 Thumbs.db
+.bash_profile
