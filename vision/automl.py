@@ -1,11 +1,33 @@
 from google.cloud import automl_v1beta1 as automl
 from api import IotAPI
 from environs import Env
+import boto3
+import vlc
+
+client = boto3.client('polly', region_name='ap-southeast-2')
+
 
 class Item:
     def __init__(self, name, score):
         self.name = name
         self.score = score
+
+
+def speek(text):
+    response = client.synthesize_speech(
+        OutputFormat='mp3',
+        Text=text,
+        TextType='text',
+        VoiceId='Nicole'
+    )
+    audio_stream = response['AudioStream'].read()
+    response['AudioStream'].close()
+
+    with open('temp.mp3', 'w') as f:
+        f.write(audio_stream)
+
+    vlc.MediaPlayer('temp.mp3').play()
+
 
 def evaluate():
     env = Env()
@@ -13,7 +35,7 @@ def evaluate():
     project_id = 'recycle-pi'
     compute_region = 'us-central1'
     model_id = env("ML_MODEL_ID")
-    file_path = 'test.jpg'
+    file_path = 'temp.jpg'
     score_threshold = '0.0'
 
     automl_client = automl.AutoMlClient()
@@ -56,8 +78,10 @@ def evaluate():
     print("\nMost confident class name: " + confident.name)
     print("Most confident class score: " + confident.score)
 
-    condition1 = confident.name == "trash" and float(confident.score) > 0.4 
-    condition2 = confident.name != "trash" and  float(confident.score) <= 0.5
+    speek(confident.name)
+
+    condition1 = confident.name == "trash" and float(confident.score) > 0.4
+    condition2 = confident.name != "trash" and float(confident.score) <= 0.5
     condition3 = confident.name == "organic" and float(confident.score) > 0.4
 
     if condition1 or condition2 or condition3:
@@ -68,8 +92,9 @@ def evaluate():
         recyclable = "true"
 
     runapi = IotAPI()
-    runapi.post_measurement("aaedd1f1-12f9-499b-9c5c-990147dc019a", "wasteType", confident.name)
+    runapi.post_measurement(
+        "aaedd1f1-12f9-499b-9c5c-990147dc019a", "wasteType", confident.name)
+
 
 if __name__ == '__main__':
-   evaluate()
-
+    evaluate()

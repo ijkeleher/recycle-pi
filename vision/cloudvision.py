@@ -1,14 +1,16 @@
+from google.cloud import vision
+from google.cloud.vision import types
+import io
+import os
+
+
 def evaluate():
-    from google.cloud import vision
-    from google.cloud.vision import types
-    import io
-    import os
 
     client = vision.ImageAnnotatorClient()
 
     file_name = os.path.join(
         os.path.dirname(__file__),
-        'test.jpg')
+        'temp.jpg')
 
     with io.open(file_name, 'rb') as image_file:
         content = image_file.read()
@@ -25,5 +27,6 @@ def evaluate():
     # returning the most confident image label
     return labels[0].description
 
+
 if __name__ == '__main__':
-   evaluate()
+    evaluate()
