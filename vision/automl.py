@@ -78,11 +78,12 @@ def evaluate():
     confident = sorted_items[length - 1]
     
     confident.name = confident.name.replace("_", " ")
-    condition = float(confident.score) < 0.2
+    condition = float(confident.score) <= 0.3
 
     if condition:
         recyclability = "Item may be trash, it may not be recyclable."
         speek(recyclability)
+        confident.name = "trash"
        #speek("That's a " + confident.name + ", innit?" + recyclability)
     else:
         if confident.name == "soft plastic":
@@ -91,7 +92,7 @@ def evaluate():
             recyclability = "Item is recyclable."
             vlc.MediaPlayer('recyclable.mp3').play()
             sleep(2)
-    speek("That's a " + confident.name + recyclability)
+        speek("That's a " + confident.name + recyclability)
 
     print("\nMost confident class name: " + confident.name)
     print("Most confident class score: " + confident.score)
