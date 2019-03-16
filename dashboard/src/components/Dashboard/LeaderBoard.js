@@ -54,18 +54,18 @@ export default class Leaderboard extends Component {
                                 fitleredArray.map((each) => {
                                     if(each.value === 'waste type') {
                                         trashPoint++;
-                                        return trashPoint;
                                     }
                                 })
-
-                                console.log(maxPoint)
-                                console.log(trashPoint)
+                                let result = (maxPoint-trashPoint)*100/maxPoint
+                                console.log("max: " + maxPoint);
+                                console.log("trash: " + trashPoint);
+                                console.log(result)
 
     
                                 return (
                                     <tr key={key}><th>{device.owner}</th>
                                         <th>{device.id}</th>
-                                        <th>{(maxPoint-trashPoint)*100/maxPoint}</th></tr>
+                                        <th>{result}</th></tr>
                                         
                                 )
 
