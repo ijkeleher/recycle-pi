@@ -31,7 +31,7 @@ export class MenuComponent extends Component {
             </Menu.Item>
             <Menu.Item position="right" className="fit-item">
             <div className="sub-menu"><a href="#">Leader board</a></div>
-              <Modal trigger={<Button>New goal</Button>}>
+              <Modal trigger={<Button style={{backgroundColor: "#33d9b2", color: "#fff"}}>New goal</Button>}>
                 <Modal.Header>Create a new goal</Modal.Header>
                 <Modal.Content>
                   <Form

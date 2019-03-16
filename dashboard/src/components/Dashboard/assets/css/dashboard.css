@@ -1,3 +1,7 @@
 .field {
     margin-bottom: .5em;
 }
+
+.menu .item h2{
+    color: #34ace0;
+}
