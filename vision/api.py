@@ -5,7 +5,7 @@ BASE_URL = "http://rpi.hazelfire.net/iot"
 
 
 class IotAPI:
-    async def post_measurement(self, deviceId, key, value):
+    def post_measurement(self, deviceId, key, value):
         requests.post(BASE_URL + "/measurements/", json={
             'device': deviceId,
             'key': key,
