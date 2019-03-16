@@ -12,4 +12,4 @@ class IotAPI:
             'value': value,
             'time': datetime.datetime.now().isoformat() + "Z"
         })
-        print(response.text)
+       # print(response.text)

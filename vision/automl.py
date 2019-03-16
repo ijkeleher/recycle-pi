@@ -3,6 +3,9 @@ from api import IotAPI
 from environs import Env
 import boto3
 import vlc
+from time import sleep
+import io
+import sys
 
 client = boto3.client('polly', region_name='ap-southeast-2')
 
@@ -25,11 +28,12 @@ def speek(text):
 
     with open('temp.mp3', 'w') as f:
         f.write(audio_stream)
-
+    
     vlc.MediaPlayer('temp.mp3').play()
 
-
 def evaluate():
+
+    print("Predicting...")
     env = Env()
     env.read_env()
     project_id = 'recycle-pi'
@@ -55,7 +59,6 @@ def evaluate():
         params = {"score_threshold": score_threshold}
 
     response = prediction_client.predict(model_full_id, payload, params)
-    print("Prediction results:")
 
     items = []
 
@@ -68,9 +71,9 @@ def evaluate():
 
     sorted_items = sorted(items, key=lambda x: x.score)
 
-    for sorted_item in sorted_items:
-        print("Predicted class name: " + sorted_item.name)
-        print("Predicted class score: " + sorted_item.score)
+    #for sorted_item in sorted_items:
+    #    print("Predicted class name: " + sorted_item.name)
+    #    print("Predicted class score: " + sorted_item.score)
 
     length = len(sorted_items)
     confident = sorted_items[length - 1]
@@ -97,6 +100,7 @@ def evaluate():
     runapi.post_measurement(
         "aaedd1f1-12f9-499b-9c5c-990147dc019a", "wasteType", confident.name)
 
+    sleep(4)
 
 if __name__ == '__main__':
     evaluate()
