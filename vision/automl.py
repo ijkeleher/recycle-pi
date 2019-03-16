@@ -32,6 +32,7 @@ def speek(text):
 def evaluate():
 
     print("Predicting...")
+    speek("Predicting...")
     env = Env()
     env.read_env()
     project_id = 'recycle-pi'
@@ -100,6 +101,7 @@ def evaluate():
         "aaedd1f1-12f9-499b-9c5c-990147dc019a", "wasteType", confident.name)
     
     print("\nDetecting motion...")
+    speek("Detecting motion...")
 
 if __name__ == '__main__':
     evaluate()
