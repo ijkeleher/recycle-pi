@@ -10,10 +10,21 @@ export default class SelectDevice extends Component {
         }
     }
 
+    selectDevice = (id) => {
+        this.setState({
+            id: id
+        })
+    }
+    
+
     render() {
         if(this.state.id) {
             return (
-                <div />
+                React.cloneElement(React.Children.only(this.props.children), {
+                    token: this.props.token,
+                    id: this.state.id,
+                    selectDevice: this.selectDevice,
+                })
             )
         } else {
             return(
@@ -25,9 +36,9 @@ export default class SelectDevice extends Component {
                         return(<div className = "select-panel">
                         <h2>SELECT DEVICE</h2>
                         <div className="device-list">
-                            {result.map((device) => {
+                            {result.map((device, key) => {
                                 return (
-                                    <div className = "device" value={device.id}>
+                                    <div className = "device" onClick={() => this.selectDevice(device.id)}>
                                         {device.name}
                                     </div>
                                 )
