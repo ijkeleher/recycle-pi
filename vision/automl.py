@@ -92,7 +92,6 @@ def evaluate():
         speek("That's a " + confident.name + ", innit?" + recyclability)
 
     print(recyclability)
-    speek("That's a " + confident.name + ", innit?" + recyclability)
 
     runapi = IotAPI()
     runapi.post_measurement(
