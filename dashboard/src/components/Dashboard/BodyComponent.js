@@ -16,9 +16,6 @@ export default class BodyComponent extends Component {
         return (
             <div className="main-dashboard">
 
-
-                <DeviceInfo name={this.props.name} id={this.props.id}/>
-
                 <Load promise={new IotAPI(this.props.token).getMeasurements()}>
                     {({ result, loading }) => {
                         if (loading) {
@@ -39,18 +36,23 @@ export default class BodyComponent extends Component {
                             };
 
                             return (
-                                <React.Fragment>
-                                    <Grid>
-                                        <Grid.Row>
-                                            <Grid.Column width={8}>
-                                                <Doughnut data={data} />
-                                            </Grid.Column>
-                                            <Grid.Column width={8}>
+                                <Grid columns={2} padded>
+                                    <Grid.Row stretched>
+                                        <Grid.Column width={8}>
+                                            <div className="card-wrap">
+                                                <DeviceInfo name={this.props.name} id={this.props.id}/>
+                                            </div>
+                                            <div className="card-wrap">
                                                 <HorizontalBar data={data} />
-                                            </Grid.Column>
-                                        </Grid.Row>
-                                    </Grid>
-                                </React.Fragment>
+                                            </div>
+                                        </Grid.Column>
+                                        <Grid.Column width={8}>
+                                            <div className="card-wrap">
+                                                <Doughnut data={data} />
+                                            </div>
+                                        </Grid.Column>
+                                    </Grid.Row>
+                                </Grid>
                             );
                         }
                     }}
