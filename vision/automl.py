@@ -80,11 +80,7 @@ def evaluate():
 
     speek(confident.name)
 
-    condition1 = confident.name == "trash" and float(confident.score) > 0.4
-    condition2 = confident.name != "trash" and float(confident.score) <= 0.5
-    condition3 = confident.name == "organic" and float(confident.score) > 0.4
-
-    if condition1 or condition2 or condition3:
+    if float(confident.score) < 0.5:
         print("Item is not recyclable.")
         recyclable = "false"
     else:
