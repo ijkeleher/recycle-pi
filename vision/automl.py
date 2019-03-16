@@ -52,7 +52,15 @@ for sorted_item in sorted_items:
     print("Predicted class score: " + sorted_item.score)
 
 length = len(sorted_items)
-accurate = sorted_items[length - 1]
+confident = sorted_items[length - 1]
 
-print("\nMost confident class name: " + accurate.name)
-print("Most confident class score: " + accurate.score)
+print("\nMost confident class name: " + confident.name)
+print("Most confident class score: " + confident.score)
+
+condition1 = confident.name == "trash" and float(confident.score) > 0.4
+condition2 = confident.name != "trash" and  float(confident.score) <= 0.5
+
+if condition1 or condition2:
+    print("Item is not recyclable.")
+else:
+    print("Item is recyclable.")
