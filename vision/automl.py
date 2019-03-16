@@ -1,4 +1,5 @@
 from google.cloud import automl_v1beta1 as automl
+from api import IotAPI
 
 class Item:
     def __init__(self, name, score):
@@ -55,10 +56,16 @@ def evaluate():
     condition1 = confident.name == "trash" and float(confident.score) > 0.4
     condition2 = confident.name != "trash" and  float(confident.score) <= 0.5
 
+    
     if condition1 or condition2:
         print("Item is not recyclable.")
+        recyclable = "false"
     else:
         print("Item is recyclable.")
+        recyclable = "true"
+
+    runapi = IotAPI()
+    runapi.post_measurement("aaedd1f1-12f9-499b-9c5c-990147dc019a", "wasteType", confident.name)
 
 if __name__ == '__main__':
    evaluate()
