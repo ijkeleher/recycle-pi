@@ -53,6 +53,7 @@ def changeDetect():
                 # Camera warm-up time
                 time.sleep(1)
                 camera.capture('temp.jpg')
+                camera.close()
                 evaluate()
 
 
