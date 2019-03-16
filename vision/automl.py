@@ -101,7 +101,7 @@ def evaluate():
     sleep(5)
     runapi = IotAPI()
     runapi.post_measurement(
-        "aaedd1f1-12f9-499b-9c5c-990147dc019a", "wasteType", confident.name)
+        "1626438031", "wasteType", confident.name)
     
     print("\nDetecting motion...")
     speek("Detecting motion...")
