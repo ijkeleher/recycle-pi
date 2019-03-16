@@ -9,7 +9,8 @@ class Measurement(models.Model):
     device = models.ForeignKey(
         'Device', related_name='measurements', on_delete=models.CASCADE)
     time = models.DateTimeField(blank=True, null=True)
-    objectType = models.CharField(max_length=200)
+    key = models.CharField(max_length=200)
+    value = models.CharField(max_length=200)
 
 
 class Device(models.Model):
@@ -17,3 +18,12 @@ class Device(models.Model):
     name = models.CharField(max_length=200)
     owner = models.ForeignKey(
         'auth.User', related_name='devices', on_delete=models.CASCADE)
+
+
+class Goal(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    key = models.CharField(max_length=200)
+    target = models.FloatField()
+    name = models.CharField(max_length=200)
+    owner = models.ForeignKey(
+        'auth.User', related_name='goals', on_delete=models.CASCADE)
