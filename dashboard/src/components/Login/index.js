@@ -5,6 +5,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className = "form-login">
+         <h1>RecyclePI</h1>
          <Form>
             <Form.Field>
               <label>First Name</label>

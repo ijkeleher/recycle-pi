@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 body {
-    font-family: 'Circular Std Book';
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
