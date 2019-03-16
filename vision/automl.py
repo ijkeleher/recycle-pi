@@ -5,7 +5,7 @@ import boto3
 import vlc
 from time import sleep
 
-client = boto3.client('polly', region_name='ap-southeast-2')
+client = boto3.client('polly', region_name='us-east-1')
 
 
 class Item:
@@ -78,18 +78,21 @@ def evaluate():
     confident = sorted_items[length - 1]
     
     confident.name = confident.name.replace("_", " ")
-    condition = float(confident.score) < 0.3
+    condition = float(confident.score) < 0.2
 
     if condition:
-        recyclability = "Item is not recyclable."
+        recyclability = "Item may be trash, it may not be recyclable."
         speek(recyclability)
        #speek("That's a " + confident.name + ", innit?" + recyclability)
     else:
         if confident.name == "soft plastic":
             recyclability = "Item is recyclable only at a specialist facility."
+            vlc.MediaPlayer('notrecyclable.mp3').play()
         else:
             recyclability = "Item is recyclable."
-        speek("That's a " + confident.name + ", innit?" + recyclability)
+            vlc.MediaPlayer('recyclable.mp3').play()
+    sleep(2)
+    speek("That's a " + confident.name + recyclability)
 
     print("\nMost confident class name: " + confident.name)
     print("Most confident class score: " + confident.score)

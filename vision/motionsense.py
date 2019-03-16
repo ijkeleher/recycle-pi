@@ -6,7 +6,7 @@ import boto3
 import vlc
 from time import sleep
 
-client = boto3.client('polly', region_name='ap-southeast-2')
+client = boto3.client('polly', region_name='us-east-1')
 
 threshold = 50    # required pixel change
 sensitivity = 100  # amount of pixels changes
