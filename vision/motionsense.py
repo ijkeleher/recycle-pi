@@ -43,7 +43,7 @@ def scanFrameChange(width, height):
 
 
 def changeDetect():
-    print("Detecting")
+    print("Detecting motion...")
     while True:
         if scanFrameChange(224, 160):
             print("Motion detected")
@@ -53,6 +53,7 @@ def changeDetect():
                 # Camera warm-up time
                 time.sleep(1)
                 camera.capture('temp.jpg')
+                camera.close()
                 evaluate()
 
 
