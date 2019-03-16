@@ -21,7 +21,7 @@ labels will be returned (based on confidence, from high to low, in the form of a
 python server.py
 ```
 
-An image **POST** server will be hosted on localhost:5000 or 0.0.0.0:5000. Script will trigger the evaluate image function in *cloudvision.py* and the most confident image label will be returned as a response.
+An image **POST** server will be hosted on *localhost:5000/uploader* or *0.0.0.0:5000/uploader*. Script will trigger the evaluate image function in *cloudvision.py* and the most confident image label will be returned as a response.
 
 
 
