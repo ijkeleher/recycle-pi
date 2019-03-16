@@ -48,7 +48,7 @@ class GoalViewSet(viewsets.ModelViewSet):
 
 class MeasurementViewSet(DocumentViewSet):
     document = MeasurementDocument
-    serializer_class = MeasurmentSerializer
+    serializer_class = MeasurementSerializer
 
     lookup_field = 'id'
 
@@ -93,7 +93,7 @@ class MeasurementViewSet(DocumentViewSet):
     }
 
     # Specify default ordering
-    ordering = ('id', 'time',)
+    ordering = ('time',)
 
 
 class UserViewset(viewsets.ModelViewSet):

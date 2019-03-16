@@ -11,30 +11,16 @@ class DeviceSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'owner', 'measurements')
 
 
-<< << << < HEAD
-
-
 class MeasurementSerializer(DocumentSerializer):
-
-
-== == == =
+    class Meta:
+        document = MeasurementDocument
+        fields = ('id', 'device', 'value', 'key')
 
 
 class GoalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goal
         fields = ('id', 'key', 'target', 'name', 'owner')
-
-
-class MeasurementSerializer(serializers.ModelSerializer):
-
-
->>>>>> > goals
-
-
-class Meta:
-        document = MeasurementDocument
-        fields = ('id', 'device', 'value', 'key')
 
 
 class UserSerializer(serializers.ModelSerializer):

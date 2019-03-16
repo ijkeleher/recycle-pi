@@ -25,7 +25,7 @@ SECRET_KEY = '6)@*c7_w%yuj*nw@-#jyr2g58p71wd#+cbvpba%8cg!vd(!9+d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['rpi.hazelfire.net']
+ALLOWED_HOSTS = ['rpi.hazelfire.net', 'localhost']
 
 
 # Application definition

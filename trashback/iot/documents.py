@@ -1,20 +1,17 @@
 from elasticsearch_dsl import analyzer
 
 from django_elasticsearch_dsl import DocType, Index, fields
+from elasticsearch_dsl import connections
 
 from .models import Measurement, Device
 
-measurement_index = Index('measurement')
+connections.create_connection(alias='default', http_auth=(
+    'elastic', 'hR6DNpugI77mueYKNBEulFH3'), hosts=["https://d284504808e347ccb2779337f23759e2.ap-southeast-2.aws.found.io:9243"])
+
+measurement_index = Index('measurements')
 measurement_index.settings(
     number_of_shards=1,
     number_of_replicas=0
-)
-
-html_strip = analyzer(
-    'html_strip',
-    tokenizer="standard",
-    filter=["standard", "lowercase", "stop", "snowball"],
-    char_filter=["html_strip"]
 )
 
 
@@ -22,11 +19,11 @@ html_strip = analyzer(
 class MeasurementDocument(DocType):
     """Article elasticsearch document"""
 
-    id = fields.IntegerField(attr='id')
+    id = fields.StringField(attr='id')
     key = fields.StringField()
     value = fields.TextField()
     location = fields.TextField()
-    device = fields.IntegerField(attr='device_id')
+    device = fields.StringField(attr='device_id')
     time = fields.IntegerField()
 
     class Meta:
