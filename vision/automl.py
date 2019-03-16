@@ -1,3 +1,8 @@
+class Item:
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
 project_id = 'recycle-pi'
 compute_region = 'us-central1'
 model_id = 'ICN1955812788478599087'
@@ -31,6 +36,23 @@ if score_threshold:
 response = prediction_client.predict(model_full_id, payload, params)
 print("Prediction results:")
 
+items = []
+
 for result in response.payload:
-    print("Predicted class name: {}".format(result.display_name))
-    print("Predicted class score: {}".format(result.classification.score))
+    fixed = "{:.5f}".format(result.classification.score)
+    name = result.display_name
+    score = fixed
+    item = Item(name, score)
+    items.append(item)
+
+sorted_items = sorted(items, key=lambda x: x.score)
+
+for sorted_item in sorted_items:
+    print("Predicted class name: " + sorted_item.name)
+    print("Predicted class score: " + sorted_item.score)
+
+length = len(sorted_items)
+accurate = sorted_items[length - 1]
+
+print("\nMost confident class name: " + accurate.name)
+print("Most confident class score: " + accurate.score)
