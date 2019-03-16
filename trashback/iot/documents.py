@@ -28,3 +28,21 @@ class MeasurementDocument(DocType):
 
     class Meta:
         model = Measurement
+
+
+device_index = Index('device')
+device_index.settings(
+    number_of_shards=1,
+    number_of_replicas=0
+)
+
+
+@device_index.doc_type
+class DeviceDocument(DocType):
+    id = fields.StringField(attr='id')
+    name = fields.StringField()
+    location = fields.TextField()
+    owner = fields.TextField()
+
+    class Meta:
+        model = Device

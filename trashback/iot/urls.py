@@ -4,7 +4,7 @@ from . import views
 from rest_framework.authtoken import views as authviews
 
 router = routers.DefaultRouter()
-router.register(r'devices', views.DeviceViewSet)
+router.register(r'devices', views.DeviceViewSet, base_name='devices')
 router.register(r'measurements', views.MeasurementViewSet,
                 base_name='measurements')
 

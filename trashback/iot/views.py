@@ -27,10 +27,41 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 
-class DeviceViewSet(viewsets.ModelViewSet):
+class DeviceViewSet(DocumentViewSet):
     serializer_class = DeviceSerializer
-    permission_classes = (permissions.IsAuthenticated,)
-    queryset = Device.objects.all()
+
+    lookup_field = 'id'
+    filter_backends = [
+        FilteringFilterBackend,
+        OrderingFilterBackend,
+        DefaultOrderingFilterBackend,
+        SearchFilterBackend,
+    ]
+
+    # Filter fields
+    filter_fields = {
+        'id': {
+            'field': 'id',
+            'lookups': [
+                LOOKUP_FILTER_RANGE,
+                LOOKUP_QUERY_IN,
+                LOOKUP_QUERY_GT,
+                LOOKUP_QUERY_GTE,
+                LOOKUP_QUERY_LT,
+                LOOKUP_QUERY_LTE,
+            ],
+        },
+        'owner': 'owner',
+    }
+
+    # Define ordering fields
+    ordering_fields = {
+        'id': 'id',
+        'name': 'name',
+    }
+
+    # Specify default ordering
+    ordering = ('id', 'name',)
 
 
 class GoalViewSet(viewsets.ModelViewSet):

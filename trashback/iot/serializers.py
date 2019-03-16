@@ -2,7 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import Device, Goal
 from django_elasticsearch_dsl_drf.serializers import DocumentSerializer
-from .documents import MeasurementDocument
+from .documents import MeasurementDocument, DeviceSerializer
 
 
 class DeviceSerializer(serializers.ModelSerializer):
@@ -15,6 +15,12 @@ class MeasurementSerializer(DocumentSerializer):
     class Meta:
         document = MeasurementDocument
         fields = ('id', 'device', 'value', 'key')
+
+
+class DeviceSerializer(DocumentSerializer):
+    class Meta:
+        document = DeviceSerializerDocument
+        fields = ('id', 'name', 'owner')
 
 
 class GoalSerializer(serializers.ModelSerializer):
