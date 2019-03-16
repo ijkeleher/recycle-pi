@@ -39,5 +39,5 @@ python server.py
 
 - google-cloud-automl
 - environs
-- flask (for server.py)
+- ~~flask (for server.py)~~
 

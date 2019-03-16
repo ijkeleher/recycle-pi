@@ -16,7 +16,7 @@ class Item:
 def speek(text):
     response = client.synthesize_speech(
         OutputFormat='mp3',
-        Text="That's a {} init".format(text),
+        Text=text,
         TextType='text',
         VoiceId='Brian'
     )
@@ -78,17 +78,18 @@ def evaluate():
     print("\nMost confident class name: " + confident.name)
     print("Most confident class score: " + confident.score)
 
-    speek(confident.name)
+    speek("That's a " + confident.name + ", innit?")
 
     condition1 = confident.name == "trash" and float(confident.score) > 0.4
     condition2 = confident.name != "trash" and float(confident.score) <= 0.5
 
     if condition1 or condition2:
-        print("Item is not recyclable.")
-        recyclable = "false"
+        recyclability = "Item is not recyclable."
     else:
-        print("Item is recyclable.")
-        recyclable = "true"
+        recyclability = "Item is recyclable."
+    
+    print(recyclability)
+    speek(recyclability)
 
     runapi = IotAPI()
     runapi.post_measurement(
