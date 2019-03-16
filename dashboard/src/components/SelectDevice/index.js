@@ -33,7 +33,7 @@ export default class SelectDevice extends Component {
                         <div className="device-list">
                             {result.map((device, key) => {
                                 return (
-                                    <div className = "device" onClick={() => this.selectDevice(device.id, device.name)}>
+                                    <div className = "device" key={key} onClick={() => this.selectDevice(device.id, device.name)}>
                                         {device.name}
                                     </div>
                                 )

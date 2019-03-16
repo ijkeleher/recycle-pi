@@ -23,7 +23,7 @@ export default class Load extends Component {
 export class Loading extends Component {
   render() {
     return(
-      <div class="loader">
+      <div className="loader">
         <img src={loading}/>
       </div>
     )

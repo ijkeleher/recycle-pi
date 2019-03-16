@@ -23,7 +23,6 @@ export default class Dashboard extends Component {
       <div style={{width: '100%'}}>
         <MenuComponent name={this.props.name} selectDevice={this.props.selectDevice} toggleLeaderBoard = {this.toggleLeaderBoard} view={this.state.isLeaderBoard}/>
         {(!this.state.isLeaderBoard) ? (<BodyComponent name={this.props.name} id={this.props.id} status={this.props.status}/>) : (<LeaderBoard/>)}
-        {/* <BodyComponent name={this.props.name} id={this.props.id} status={this.props.status}/> */}
       </div>
     );
   }
