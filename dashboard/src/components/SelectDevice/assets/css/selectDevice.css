@@ -26,6 +26,7 @@
     padding: 5px 10px;
     border-radius: 99px;
     box-shadow: 0 0 5px #00000047;
+    margin-bottom: 1em;
 }
 
 .select-panel .device-list .device:hover{
