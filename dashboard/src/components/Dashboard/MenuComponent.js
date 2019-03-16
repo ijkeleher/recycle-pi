@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Form, Field} from 'simple-react-form';
-import {Button, Menu, Input, Modal} from 'semantic-ui-react';
+import {Button, Menu, Input, Modal, MenuMenu} from 'semantic-ui-react';
 import IotApi from '../../api';
-
+import './assets/css/menu.css';
 export class MenuComponent extends Component {
     constructor(props) {
         super(props);
@@ -24,7 +24,11 @@ export class MenuComponent extends Component {
     render() {
         return(
         <Menu fluid>
-            <Menu.Item position="right">
+            <Menu.Item position="left">
+                Logo name
+            </Menu.Item>
+            <Menu.Item position="right" className="fit-item">
+            <div className="sub-menu"><a href="#">leaderBoard</a></div>
               <Modal trigger={<Button>New goal</Button>}>
                 <Modal.Header>Create a new goal</Modal.Header>
                 <Modal.Content>
