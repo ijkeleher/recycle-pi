@@ -16,9 +16,9 @@ class Item:
 def speek(text):
     response = client.synthesize_speech(
         OutputFormat='mp3',
-        Text=text,
+        Text="That's a {} init".format(text),
         TextType='text',
-        VoiceId='Nicole'
+        VoiceId='Brian'
     )
     audio_stream = response['AudioStream'].read()
     response['AudioStream'].close()
