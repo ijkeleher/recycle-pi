@@ -3,8 +3,9 @@ from api import IotAPI
 from environs import Env
 import boto3
 import vlc
+from time import sleep
 
-client = boto3.client('polly', region_name='ap-southeast-2')
+client = boto3.client('polly', region_name='us-east-1')
 
 
 class Item:
@@ -25,11 +26,13 @@ def speek(text):
 
     with open('temp.mp3', 'w') as f:
         f.write(audio_stream)
-
+    
     vlc.MediaPlayer('temp.mp3').play()
 
-
 def evaluate():
+
+    print("Predicting...")
+    speek("Predicting...")
     env = Env()
     env.read_env()
     project_id = 'recycle-pi'
@@ -55,7 +58,6 @@ def evaluate():
         params = {"score_threshold": score_threshold}
 
     response = prediction_client.predict(model_full_id, payload, params)
-    print("Prediction results:")
 
     items = []
 
@@ -68,35 +70,41 @@ def evaluate():
 
     sorted_items = sorted(items, key=lambda x: x.score)
 
-    for sorted_item in sorted_items:
-        print("Predicted class name: " + sorted_item.name)
-        print("Predicted class score: " + sorted_item.score)
+    #for sorted_item in sorted_items:
+    #    print("Predicted class name: " + sorted_item.name)
+    #    print("Predicted class score: " + sorted_item.score)
 
     length = len(sorted_items)
     confident = sorted_items[length - 1]
+    
+    confident.name = confident.name.replace("_", " ")
+    condition = float(confident.score) <= 0.3
+
+    if condition:
+        recyclability = "Item may be trash, it may not be recyclable."
+        speek(recyclability)
+        confident.name = "trash"
+       #speek("That's a " + confident.name + ", innit?" + recyclability)
+    else:
+        if confident.name == "soft plastic":
+            recyclability = "Item is recyclable only at a specialist facility."
+        else:
+            recyclability = "Item is recyclable."
+            vlc.MediaPlayer('recyclable.mp3').play()
+            sleep(2)
+        speek("That's a " + confident.name + recyclability)
 
     print("\nMost confident class name: " + confident.name)
     print("Most confident class score: " + confident.score)
-
-    condition1 = confident.name == "trash" and float(confident.score) > 0.4
-    condition2 = confident.name != "trash" and float(confident.score) <= 0.3
-
-    if condition1:
-        recyclability = "Item is not recyclable."
-        speek("That's a " + confident.name + ", innit?" + recyclability)
-    elif condition2:
-        recyclability = "Item is not recyclable."
-        speek(recyclability)
-    else:
-        recyclability = "Item is recyclable."
-        speek("That's a " + confident.name + ", innit?" + recyclability)
-
     print(recyclability)
-
+    
+    sleep(5)
     runapi = IotAPI()
     runapi.post_measurement(
         "aaedd1f1-12f9-499b-9c5c-990147dc019a", "wasteType", confident.name)
-
+    
+    print("\nDetecting motion...")
+    speek("Detecting motion...")
 
 if __name__ == '__main__':
     evaluate()
