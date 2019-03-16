@@ -5,6 +5,7 @@ import './assets/css/dashboard.css';
 
 import { MenuComponent } from './MenuComponent';
 import BodyComponent from './BodyComponent';
+import Leaderboard from './Leaderboard';
 export default class Dashboard extends Component {
 
   render() {
@@ -12,6 +13,8 @@ export default class Dashboard extends Component {
       <div style={{width: '100%'}}>
         <MenuComponent name={this.props.name} selectDevice={this.props.selectDevice}/>
         <BodyComponent name={this.props.name} id={this.props.id} status={this.props.status}/>
+        < Leaderboard />
+
       </div>
     );
   }
