@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "recycle-pi",
+  "private_key_id": "8b7f6ab5a85aa70284e1cb93ef8a675ba902bdd0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCxMOkIDZw01RC9\nCPQsUs0pKcwshfdntFU96Tv03fSiJi1R+tCsJQJH90zhUKyZx0Tq8NnLquLwmrdJ\nZvatQ7qP6fElHEm/DFlyRrYh2HM5lzme3n55nv+JyxLOKyjaAWdhLknCNjQGlW4M\nhsIjXk6FsB8x5Z7RA7kBHdLyTB9Y8CSasNmsHExl1DoC5Ez7Mm4PiJn9L8Jkppj6\nOjGBxYC78CcmxJcUl3qF4UpGPC2fbPD2xcK8kQ9A/64CGAtwbk1xepu8gmIscHx2\nkqj9Gq21AL/xX4KI/mZ5wRSaYfifemrx9TsliGVjdg4ySDEOL9gdJI4kpGC4VEOu\nLXbPMYZfAgMBAAECggEACBlPtW4F00Zf1vwXSQVZ2kVOT0SqS8Oq18MW2fjhKx4q\nmSIpMo0YfxiXG39X/Elm5YQvuEbty4iO0xyRLtc3KkfLnWIfHsveNMJ1pbNihOHc\nIN5TkpSJYo91IxZG7jv9MSxv86ANnbVry8fHDN3NIgAsVNgFe9E7PglScH+5ORPh\nRI/hcXMTsgtcVs9l6wqYxvDF7IKbdXREvyALBzjHn1+mDCNJ9cZLbL3Cf38sPOFx\n6PgZOeMMkfr8fWRpstQJ+4g5FSuNiq37EqoidI2lpMk8pzgFCAUX0R5HPXZcF77k\nMCMBOchGriJlYlUKQrcUcLe7aXNDRMyPn+HzawmGqQKBgQDwAm9AYARIQxEUmaxl\nXsuhRSlrWgzySNVRYNi6Z63dr5WizYea+uvH/lzGP1ZY3uK0WxKIDfxv9c5x7hJe\nq97rgh2Ed0OvGopnAfIHtdSoY0dYKqB2E/zml4nv+eQlP1mPvY7NvpK9G7pafAC/\nHRvSqLjSu1XIM03ecovkm3xViQKBgQC8/w3EFdLzau4D2k5ycsfQdlDr8/rcwHCQ\nFGC5yDGhaVADEESgDYNtjxCx5dowMP3iU1A/gwOu408bJKcam6V9k2O0UK9ntzjf\n29jlavzZT/CTc3MCXoTTO7pskKE+qdcbz6rO7pY+JQeBOjz31o5YoEpkGMmOYxx+\nZ/quiJNqpwKBgBYmI14tfjes+MaN5/ry5JfdahUeGlPBpO39ogKRztnGemirzvfe\ncCPktWsWLUHGT+WVAgDMSZ+Lb6HT9p4F/mx9dXvkBbsDGAKpi0xq21Uu1EauqGA9\nN/mPwosC5KsLTZiWRbd2/tO0212+U9NPPGIUb/oCj8gJ9AWzTHWsY60BAoGBALSa\nuuntvQeV4FtYK2zc2KsR1WSVYt2/HBHjF0eR0jOf8rDqw9l68GQqudZ2gtlYh9TW\nrrHynftrBrY2gWVA5ZUp2rZ+ABCJm1T4vr0FTxjPdmNBiN7zudQtmImUcDH0lTXj\nbiOPBY3fTtuj7o0bwC1bB5u9wCZL+feln31X0B+zAoGBALjmEilHinBHQY1oTv6J\n6lXq4CUA6IuabvZXtUUveeKqx/+Vceqw/m545DNKwCqGXXP45HdKUYCdRDTFcdlc\nR8Yrfhuwapj0dJYBj/mDTT1z+ImcU1sUEetxGncrYQXWRIk8zdg5o6Y10t/Cpi8E\n+kWZi1uL0XfkjydD6eXXzTnB\n-----END PRIVATE KEY-----\n",
+  "client_email": "recycle-pi-cloudvision@recycle-pi.iam.gserviceaccount.com",
+  "client_id": "117884131802601619929",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/recycle-pi-cloudvision%40recycle-pi.iam.gserviceaccount.com"
+}
