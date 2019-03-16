@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Form, Field} from 'simple-react-form';
-import {Button, Menu, Input, Modal, Dropdown} from 'semantic-ui-react';
+import {Button, Menu, Input, Modal} from 'semantic-ui-react';
 import IotApi from '../../api';
 
 export default class Dashboard extends Component {
@@ -23,7 +23,7 @@ export default class Dashboard extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{width: '100%'}}>
         <Menu fluid>
           <Menu.Item position="right">
             <Modal trigger={<Button>New goal</Button>}>
