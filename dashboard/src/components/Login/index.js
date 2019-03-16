@@ -1,25 +1,57 @@
 import React, {Component} from 'react';
 import { Button, Checkbox, Form } from 'semantic-ui-react';
 import './assets/css/login.css';
+import IotAPI from "../../api";
+import logo from '../../images/logo.svg';
 export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+      token: null
+    }
+
+    this.onInputChange = this.onInputChange.bind(this);
+  }
+
+  onInputChange (event) {
+    this.setState({[event.target.name]: event.target.value});
+  }
+
+  onLogin = () => {
+    IotAPI.logIn(this.state.username, this.state.password).then((res) => {
+      this.setState({
+        token: res
+      })
+    });
+  }
   render() {
-    return (
-      <div className = "form-login">
-         <Form>
-            <Form.Field>
-              <label>First Name</label>
-              <input placeholder='First Name' />
-            </Form.Field>
-            <Form.Field>
-              <label>Last Name</label>
-              <input placeholder='Last Name' />
-            </Form.Field>
-            <Form.Field>
-              <Checkbox label='I agree to the Terms and Conditions' />
-            </Form.Field>
-            <Button type='submit'>Submit</Button>
-        </Form>
-      </div>
-    );
+    if(this.state.token) {
+        return React.cloneElement(React.Children.only(this.props.children), 
+          {
+          token: this.state.token
+          })
+    } else {
+      return (
+        <div className = "form-login">
+           <h1>RecyclePI <img src={logo} style={{height:20, color: '#218c74'}} /></h1>
+           <Form>
+              <Form.Field>
+                <label>Username</label>
+                <input placeholder='Username' type="text" value={this.state.value} name="username" onChange={this.onInputChange} autoComplete="new-password"/>
+              </Form.Field>
+              <Form.Field>
+                <label>Password</label>
+                <input placeholder='Password' type='password' value={this.state.value} name="password" onChange={this.onInputChange} autoComplete="new-password"/>
+              </Form.Field>
+              <Form.Field>
+                <Checkbox label='Remember me' />
+              </Form.Field>
+              <Button type='submit' style={{backgroundColor: '#34ace0', color: '#fff'}} onClick={this.onLogin}>Login</Button>
+          </Form>
+        </div>
+      );
+    }
   }
 }

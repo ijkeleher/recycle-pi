@@ -7,7 +7,8 @@ yarn-error.log*
 firebase-debug.log*
 key.json
 .mypy_cache
-
+temp.*
+*.pyc
 # Firebase cache
 .firebase/
 

@@ -18,7 +18,7 @@ def speek(text):
         OutputFormat='mp3',
         Text=text,
         TextType='text',
-        VoiceId='Nicole'
+        VoiceId='Brian'
     )
     audio_stream = response['AudioStream'].read()
     response['AudioStream'].close()
@@ -78,18 +78,20 @@ def evaluate():
     print("\nMost confident class name: " + confident.name)
     print("Most confident class score: " + confident.score)
 
-    speek(confident.name)
-
     condition1 = confident.name == "trash" and float(confident.score) > 0.4
-    condition2 = confident.name != "trash" and float(confident.score) <= 0.5
-    condition3 = confident.name == "organic" and float(confident.score) > 0.4
+    condition2 = confident.name != "trash" and float(confident.score) <= 0.3
 
-    if condition1 or condition2 or condition3:
-        print("Item is not recyclable.")
-        recyclable = "false"
+    if condition1:
+        recyclability = "Item is not recyclable."
+        speek("That's a " + confident.name + ", innit?" + recyclability)
+    elif condition2:
+        recyclability = "Item is not recyclable."
+        speek(recyclability)
     else:
-        print("Item is recyclable.")
-        recyclable = "true"
+        recyclability = "Item is recyclable."
+        speek("That's a " + confident.name + ", innit?" + recyclability)
+
+    print(recyclability)
 
     runapi = IotAPI()
     runapi.post_measurement(

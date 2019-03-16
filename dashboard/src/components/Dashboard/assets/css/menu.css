@@ -1,0 +1,16 @@
+.leaderBoard {
+    margin-right: 2em;
+}
+
+.sub-menu {
+    color: #000;
+    display: flex;
+    margin-right: 2em;
+    align-self: center;
+    width: 200px;
+}
+
+
+.menu .dropdown {
+    margin-right: 2em;
+}
