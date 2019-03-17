@@ -61,34 +61,11 @@ export class MenuComponent extends Component {
             }}
           
             </Load>
-            <div className="sub-menu"><a href="#" onClick={() => this.props.toggleLeaderBoard()}>{(this.props.view) ? "Dashboard" : "Leaderboard"}</a></div>
-              {/* <Modal trigger={<Button style={{backgroundColor: "#33d9b2", color: "#fff"}}>New goal</Button>}>
-                <Modal.Header>Create a new goal</Modal.Header>
-                <Modal.Content>
-                  <Form
-                    state={this.state.goalForm}
-                    onChange={state => this.setState({goalForm: state})}>
-                    <div className = "field">
-                      <Field fieldName="name" label="Goal name" type={Input} />
-                    </div>
-                    <div className = "field">
-                      <Field
-                        fieldName="metric"
-                        label="Goal metric"
-                        type={Input}
-                      />
-                    </div>
-                    <div className = "field">
-                      <Field
-                        fieldName="target"
-                        label="Goal target"
-                        type={Input}
-                      />
-                    </div>
-                    <Button onChange={this.submitGoal}>Submit</Button>
-                  </Form>
-                </Modal.Content>
-              </Modal> */}
+            <div className="sub-menu">
+              {/* <a href="#" onClick={() => this.props.toggleLeaderBoard()}>{(this.props.view) ? "Dashboard" : "Leaderboard"}</a> */}
+              <Button onClick={() => this.props.toggleLeaderBoard()} style={{backgroundColor: (this.props.view) ? "#474787" : "#218c74", color: 'white'}}>{(this.props.view) ? "Dashboard" : "Leaderboard"}</Button>
+            </div>
+             
             </Menu.Item>
           </Menu>
         );

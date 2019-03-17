@@ -41,3 +41,8 @@
     left: 0;
     height: 100%;
 }
+
+.main-dashboard .table tr{
+    text-align: center;
+    line-height: 3em;
+}
