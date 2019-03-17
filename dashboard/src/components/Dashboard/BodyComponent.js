@@ -32,7 +32,7 @@ export default class BodyComponent extends Component {
                             return <Loading />
                         }
                         else {
-                            let deviceSpecific = result.filter((entry) => entry.device === this.props.id);
+                            let deviceSpecific = result.filter((entry) => entry.device === this.props.id + "");
 
                             // For the charts
                             let types = _.groupBy(deviceSpecific, (entry) => entry.value);

@@ -16,7 +16,6 @@ export default class SelectDevice extends Component {
             id: id,
             name: name
         })
-        console.log(this.state);
     }
 
     render() {
