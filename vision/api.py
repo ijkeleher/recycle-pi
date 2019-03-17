@@ -15,4 +15,4 @@ class IotAPI:
             'time': datetime.now().isoformat() + "Z",
             'location': "Melbourne, Australia",
         }, auth=('elastic', 'hR6DNpugI77mueYKNBEulFH3'))
-        print(response.text)
+       #print(response.text)
