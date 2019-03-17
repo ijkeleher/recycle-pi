@@ -92,7 +92,7 @@ def evaluate():
             recyclability = "Item is recyclable."
             vlc.MediaPlayer('recyclable.mp3').play()
             sleep(2)
-        speek("That's a " + confident.name + recyclability)
+        speek("That's a " + confident.name + ", " + recyclability)
 
     print("\nMost confident class name: " + confident.name)
     print("Most confident class score: " + confident.score)

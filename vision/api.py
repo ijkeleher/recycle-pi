@@ -12,7 +12,7 @@ class IotAPI:
             'device': deviceId,
             'key': key,
             'value': value,
-            'time': datetime.datetime.now().isoformat() + "Z",
+            'time': datetime.now().isoformat() + "Z",
             'location': "Melbourne, Australia",
-        })
-       # print(response.text)
+        }, auth=('elastic', 'hR6DNpugI77mueYKNBEulFH3'))
+        print(response.text)
