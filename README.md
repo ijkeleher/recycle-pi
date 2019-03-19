@@ -8,6 +8,8 @@ Our platform:
 - Reduces contamination at across the waste management chain, at first-point of contact, transport, and processing.
 - Provides data for analysis
 
+<img width="460" height="300" align="center" src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/781/284/datas/gallery.jpg" />
+
 Motivation: By now we're all familiar with China's National Sword policy and the impact it is having on our Waste Management industry. The world's largest buyer of recycled commodities has demanded that we make them purer. No longer is 87% purity acceptable, but 93% is demanded - and at the same price.
 
 Processors are spending more time and money to improve the purity of their products: slowing down their lines, hiring more sorters and adding equipment.
